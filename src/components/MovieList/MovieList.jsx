@@ -1,13 +1,19 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Додаємо useLocation
 import styles from "./MovieList.module.css";
 
 export const MovieList = ({ movies }) => {
+  const location = useLocation(); // Використовуємо useLocation для отримання поточного місцезнаходження
+
   return (
     <ul className={styles["movie-list"]}>
       {movies.map((movie) => (
         <li key={movie.id} className={styles["movie-item"]}>
-          <Link to={`/movies/${movie.id}`} className={styles["movie-link"]}>
+          <Link
+            to={`/movies/${movie.id}`}
+            state={{ from: location }} // Передаємо поточне місцезнаходження через state
+            className={styles["movie-link"]}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navigation.module.css";
 import Container from "../Container/Container";
 
-export const Header = () => {
+export const Navigation = () => {
   return (
     <header className={styles.header}>
       <Container>
