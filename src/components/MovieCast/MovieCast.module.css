@@ -1,0 +1,48 @@
+.castList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.castItem {
+  background-color: var(--color-mainBackground);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.castItem:hover {
+  transform: translateY(-5px);
+}
+
+.castImage {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.actorName {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+
+.noCast {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 14px;
+  text-align: center;
+}

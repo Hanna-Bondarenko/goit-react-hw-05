@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { fetchMovieCredits } from "../../services/api";
 import { useParams } from "react-router-dom";
+import styles from "./MovieCast.module.css";
 
 export const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const [error, setError] = useState(null);
+
+  const defaultImg = "https://via.placeholder.com/150";
 
   useEffect(() => {
     if (!movieId) return;
@@ -22,14 +24,28 @@ export const MovieCast = () => {
     fetchCast();
   }, [movieId]);
 
-  if (!cast.length) return <div>No cast available</div>;
+  if (!cast.length)
+    return <div className={styles.noCast}>No cast available</div>;
 
   return (
-    <ul>
-      {error && <p>{error.message}</p>}
+    <ul className={styles.castList}>
+      {error && <p className={styles.error}>{error.message}</p>}
       {cast.map((actor) => (
-        <li key={actor.id}>{actor.name}</li>
+        <li key={actor.id} className={styles.castItem}>
+          <img
+            className={styles.castImage}
+            src={
+              actor.profile_path
+                ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                : defaultImg
+            }
+            alt={actor.name}
+          />
+          <p className={styles.actorName}>{actor.name}</p>
+        </li>
       ))}
     </ul>
   );
 };
+
+export default MovieCast;

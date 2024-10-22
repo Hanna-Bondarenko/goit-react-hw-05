@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-
-import styles from "./Header.module.css";
+import styles from "./Navigation.module.css";
+import Container from "../Container/Container";
 
 export const Header = () => {
   return (
-    <>
-      <header className={styles.header}>
+    <header className={styles.header}>
+      <Container>
         <div className={styles.wrapper}>
           <nav>
             <ul className={styles.nav}>
@@ -32,7 +32,7 @@ export const Header = () => {
             </ul>
           </nav>
         </div>
-      </header>
-    </>
+      </Container>
+    </header>
   );
 };

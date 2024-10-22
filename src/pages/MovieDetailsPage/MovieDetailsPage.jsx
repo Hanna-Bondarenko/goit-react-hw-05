@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieDetails } from "../../services/api";
+import styles from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams(); // Отримуємо movieId з URL
@@ -29,9 +30,11 @@ const MovieDetailsPage = () => {
     "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
 
   return (
-    <div>
-      <Link to={backLinkRef.current}>Go back</Link>
-      <h1>{movie.title}</h1>
+    <div className={styles.container}>
+      <Link to={backLinkRef.current} className={styles.backLink}>
+        Go back
+      </Link>
+      <h1 className={styles.movieTitle}>{movie.title}</h1>
       {error && <p>{error.message}</p>}
       <img
         src={
@@ -40,12 +43,17 @@ const MovieDetailsPage = () => {
             : defaultImg
         }
         alt={movie.title}
+        className={styles.movieImg}
         width={250}
       />
-      <p>{movie.overview}</p>
-      <nav>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
+      <p className={styles.movieOverview}>{movie.overview}</p>
+      <nav className={styles.navLinks}>
+        <Link to="cast" className={styles.navLink}>
+          Cast
+        </Link>
+        <Link to="reviews" className={styles.navLink}>
+          Reviews
+        </Link>
       </nav>
       <Outlet />
     </div>

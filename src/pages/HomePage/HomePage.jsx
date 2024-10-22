@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchTrendingMovies } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
+import Container from "../../components/Container/Container";
+import Section from "../../components/Section/Section";
 
 export const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -20,10 +22,14 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Trending Movies</h1>
-      {error && <p>{error}</p>}
-      <MovieList movies={movies} />
-    </div>
+    <>
+      <Section>
+        <Container>
+          <h2>Trending Movies</h2>
+          {error && <p>{error}</p>}
+          <MovieList movies={movies} />
+        </Container>
+      </Section>
+    </>
   );
 };

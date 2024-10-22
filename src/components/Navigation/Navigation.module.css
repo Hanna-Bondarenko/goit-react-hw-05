@@ -1,0 +1,37 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-mainBackground);
+  padding: 10px 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  color: var(--color-text);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.active {
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+.link:hover {
+  color: var(--color-hover);
+}
