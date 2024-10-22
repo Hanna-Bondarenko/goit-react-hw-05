@@ -15,7 +15,7 @@ export const MoviesPage = () => {
 
     async function fetchMovies() {
       try {
-        const data = await fetchMoviesByQuery();
+        const data = await fetchMoviesByQuery(query);
         setMovies(data.results);
       } catch (error) {
         setError(error);
