@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MovieCast } from "./components/MovieCast/MovieCast";
 import { MovieReviews } from "./components/MovieReviews/MovieReviews";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { Header } from "./components/Header/Header";
 
-const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+// const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
 const MovieDetailsPage = lazy(() =>
   import("./pages/MovieDetailsPage/MovieDetailsPage")
@@ -14,6 +16,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <Header />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />

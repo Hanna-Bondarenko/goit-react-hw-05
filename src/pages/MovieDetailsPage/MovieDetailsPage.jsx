@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieDetails } from "../../services/api";
 
 const MovieDetailsPage = () => {
@@ -30,7 +30,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <link to={backLinkRef.current}>Go back</link>
+      <Link to={backLinkRef.current}>Go back</Link>
       <h1>{movie.title}</h1>
       {error && <p>{error.message}</p>}
       <img
@@ -44,8 +44,8 @@ const MovieDetailsPage = () => {
       />
       <p>{movie.overview}</p>
       <nav>
-        <link to="cast">Cast</link>
-        <link to="reviews">Reviews</link>
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
       </nav>
       <Outlet />
     </div>
