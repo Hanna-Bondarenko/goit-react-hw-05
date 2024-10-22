@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import { MovieCast } from "./components/MovieCast/MovieCast";
 import { MovieReviews } from "./components/MovieReviews/MovieReviews";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";

@@ -1,24 +1,23 @@
 import { useState } from "react";
-import PropTypes from "prop-types"; // Імпортуємо бібліотеку prop-types
+import PropTypes from "prop-types";
 
 const SearchForm = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
 
   const handleInputChange = (e) => {
-    setQuery(e.target.value); // Оновлюємо стан з введеного значення
+    setQuery(e.target.value);
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Запобігаємо перезавантаженню сторінки
-    if (!query.trim()) return; // Перевірка на порожнє поле
-    onSubmit(query); // Викликаємо функцію onSubmit з пропсів
-    setQuery(""); // Очищаємо поле пошуку після відправки
+    e.preventDefault();
+    if (!query.trim()) return;
+    onSubmit(query);
+    setQuery("");
   };
 
   return (
     <form onSubmit={handleFormSubmit}>
       {" "}
-      {/* Викликаємо handleFormSubmit при сабміті */}
       <input
         type="text"
         value={query}
@@ -30,9 +29,8 @@ const SearchForm = ({ onSubmit }) => {
   );
 };
 
-// Визначаємо типи пропсів за допомогою prop-types
 SearchForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired, // onSubmit обов'язковий і має бути функцією
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;
