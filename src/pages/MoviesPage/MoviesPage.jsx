@@ -10,7 +10,7 @@ export const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false); // Додаємо стан для керування завантаженням
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!query) return;
