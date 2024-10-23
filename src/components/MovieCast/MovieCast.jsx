@@ -30,6 +30,7 @@ export const MovieCast = () => {
   return (
     <ul className={styles.castList}>
       {error && <p className={styles.error}>{error.message}</p>}
+      console.log(cast);
       {cast.map((actor) => (
         <li key={actor.id} className={styles.castItem}>
           <img
