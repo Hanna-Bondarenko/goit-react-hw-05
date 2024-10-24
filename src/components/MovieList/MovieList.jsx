@@ -11,7 +11,7 @@ export const MovieList = ({ movies }) => {
         <li key={movie.id} className={styles["movie-item"]}>
           <Link
             to={`/movies/${movie.id}`}
-            state={{ from: location }}
+            state={location}
             className={styles["movie-link"]}
           >
             <img
